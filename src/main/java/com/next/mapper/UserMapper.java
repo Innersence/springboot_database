@@ -1,4 +1,4 @@
-package com.example.mapper;
+package com.next.mapper;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-import com.example.model.User;;
+import com.next.model.User;;
 
 public interface UserMapper {
 	@Select("select * from user")

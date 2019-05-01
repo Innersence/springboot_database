@@ -1,12 +1,11 @@
-package com.example.controller;
+package com.next.controller;
 
-import com.example.mapper.*;
-import com.example.model.*;
+import com.next.mapper.*;
+import com.next.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
