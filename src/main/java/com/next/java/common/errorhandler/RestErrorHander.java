@@ -1,4 +1,4 @@
-package com.next.common.errorhandler;
+package com.next.java.common.errorhandler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-/**
+
+/**reference https://www.jianshu.com/p/6e7651705d29
  * 控制器的异常处理类
  * @author Sky
  *
@@ -20,15 +21,12 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 //这个注解是指这个类是处理其他controller抛出的异常
 @ControllerAdvice
 public class RestErrorHander {
-
     //这个注解是指当controller中抛出这个指定的异常类的时候，都会转到这个方法中来处理异常
     @ExceptionHandler(MissingServletRequestParameterException.class)
     //将返回的值转成json格式的数据
     @ResponseBody
-    //返回的状态码
     @ResponseStatus(value=HttpStatus.INTERNAL_SERVER_ERROR)     //服务内部错误
     public Map<String,Object> handlerMissingRequestParameterException(MissingServletRequestParameterException ex){
-
         Map<String,Object> result= new HashMap<String,Object>();
         result.put("msg", ex.getParameterName());
         result.put("message", ex.getMessage());

@@ -1,8 +1,9 @@
-package com.next.controller;
+package com.next.java.controller;
 
-import com.next.mapper.*;
-import com.next.model.*;
-
+import com.next.java.mapper.UserMapper;
+import com.next.java.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class HelloWorldController {
 
+	private static Logger log = LoggerFactory.getLogger(HelloWorldController.class);
+
 	@Autowired
 	private UserMapper userMapper;
 	
 	@RequestMapping("/hello")    
-    public List<User> index() { 		
+    public List<User> index() {
 		List<User> data =userMapper.getAll();
 		
 		if(data==null)
@@ -45,6 +48,7 @@ public class HelloWorldController {
 	@RequestMapping("id")
 	public User getUserById(@RequestParam("id") Long id){
 		User data = userMapper.getOneById(id);
+		log.info("id is"+id);
 		return data;
 	}
 	

@@ -1,4 +1,4 @@
-package com.next.model;
+package com.next.java.model;
 
 import java.io.Serializable;
 
