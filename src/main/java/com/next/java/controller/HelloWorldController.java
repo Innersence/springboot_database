@@ -48,7 +48,11 @@ public class HelloWorldController {
 	@RequestMapping("id")
 	public User getUserById(@RequestParam("id") Long id){
 		User data = userMapper.getOneById(id);
-		log.info("id is"+id);
+		if(data == null)
+		{
+			return new User();
+		}
+		log.info("id is "+id);
 		return data;
 	}
 	
